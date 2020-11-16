@@ -107,7 +107,8 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[sub_resource type="CircleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 8, 8 )
 
 [sub_resource type="ConvexPolygonShape2D" id=19]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
