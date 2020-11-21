@@ -2,34 +2,49 @@ extends KinematicBody2D
 
 # Editor variables
 export var run_speed := 100
-export var jump_speed := 300
-export var gravity := 1000
+export var jump_speed := 400
+export var gravity := 1200
 
 var motion := Vector2()
 var velocity := Vector2()
 var score := 0
+var jumping := false
+var in_air := false
 
-func _physics_process(delta):
+func get_input():
 	
-	# Left-right movement
-	if Input.is_action_pressed("ui_right"):
-		velocity.x = run_speed
+	velocity.x = 0
+	var right = Input.is_action_pressed('ui_right')
+	var left = Input.is_action_pressed('ui_left')
+	var jump = Input.is_action_just_pressed('ui_up')
+
+	if jump and is_on_floor():
+		jumping = true
+		velocity.y = -jump_speed
+		print("Jumping %d" % velocity.y)
+	if right:
+		velocity.x += run_speed
+	if left:
+		velocity.x -= run_speed
+
+func change_sprite():
+	if velocity.x > 0:
 		$AnimatedSprite.play("run_right")
-	elif Input.is_action_pressed("ui_left"):
-		velocity.x = -run_speed
+	elif velocity.x < 0:
 		$AnimatedSprite.play("run_left")
-	else:
-		velocity.x = 0
+	else: 
 		$AnimatedSprite.play("idle")
 
-	var jump_pressed = Input.is_action_just_pressed('ui_up')
-
+func _physics_process(delta):
 	velocity.y += gravity * delta
-	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
-
-	# Vertical movement
-	if jump_pressed and is_on_floor():
-		velocity.y = -jump_speed
+	get_input()
+	
+	if jumping and is_on_floor():
+		jumping = false
+		print("jumping false")
+	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	change_sprite()
 	
 # called when we run into a coin
 func collect_coin (value):
