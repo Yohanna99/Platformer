@@ -110,7 +110,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 6.91365, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=31]
+[sub_resource type="ConvexPolygonShape2D" id=19]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
@@ -270,14 +270,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 10/navigation_offset = Vector2( 0, 0 )
 10/shape_offset = Vector2( 0, 0 )
 10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-10/shape = SubResource( 31 )
+10/shape = SubResource( 19 )
 10/shape_one_way = true
 10/shape_one_way_margin = 1.0
 10/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": true,
 "one_way_margin": 1.0,
-"shape": SubResource( 31 ),
+"shape": SubResource( 19 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 10/z_index = 0
@@ -477,6 +477,7 @@ animations = [ {
 } ]
 
 [node name="world" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
 __meta__ = {
 "_edit_vertical_guides_": [ 0.0 ]
 }
@@ -489,6 +490,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
+run_speed = 150
+jump_speed = 300
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player/Player"]
 frames = SubResource( 17 )
@@ -509,7 +512,7 @@ tile_set = SubResource( 22 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 1
 format = 1
-tile_data = PoolIntArray( 720896, 17, 0, 786432, 17, 0, 851968, 17, 0, 917504, 17, 0, 983040, 17, 0, 1048576, 17, 0, 1048581, 10, 0, 1048585, 10, 0, 1048586, 10, 0, 1114112, 17, 0, 1179648, 17, 0, 1179649, 17, 0, 1179650, 17, 0, 1179651, 17, 0, 1179652, 17, 0, 1179653, 17, 0, 1179654, 17, 0, 1179655, 17, 0, 1179656, 17, 0, 1179657, 17, 0, 1179658, 17, 0, 1179659, 17, 0, 1179660, 17, 0, 1179661, 17, 0, 1179662, 17, 0, 1179663, 17, 0, 1179664, 17, 0, 1179665, 17, 0, 1179666, 17, 0, 1179667, 17, 0, 1179668, 17, 0, 1179669, 17, 0, 4653056, 17, 0, 4653060, 17, 0, 4653064, 17, 0, 4653068, 17, 0, 4653072, 17, 0, 4653076, 17, 0 )
+tile_data = PoolIntArray( 720896, 17, 0, 786432, 17, 0, 851968, 17, 0, 917504, 17, 0, 983040, 17, 0, 1048576, 17, 0, 1048581, 10, 0, 1048585, 10, 0, 1048586, 10, 0, 1114112, 17, 0, 1179648, 17, 0, 1179649, 17, 0, 1179650, 17, 0, 1179651, 17, 0, 1179652, 17, 0, 1179653, 17, 0, 1179654, 17, 0, 1179655, 17, 0, 1179656, 17, 0, 1179657, 17, 0, 1179658, 17, 0, 1179659, 17, 0, 1179660, 17, 0, 1179661, 17, 0, 1179662, 17, 0, 1179663, 17, 0, 1179664, 17, 0, 1179665, 17, 0, 1179666, 17, 0, 1179667, 17, 0, 1179668, 17, 0, 1179669, 17, 0 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
