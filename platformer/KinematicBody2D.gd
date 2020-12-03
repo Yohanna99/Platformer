@@ -50,3 +50,8 @@ func _physics_process(delta):
 func collect_coin (value):
 	score += value
 
+func die ():
+	get_tree().reload_current_scene()
+
+func _on_Area2D_body_entered(body):
+	pass # Replace with function body.
