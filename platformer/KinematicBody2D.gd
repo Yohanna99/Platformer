@@ -20,7 +20,7 @@ func get_input():
 
 	if jump and is_on_floor():
 		jumping = true
-		velocity.y = -jump_speed
+		velocity.y = -jump_speed*1.1
 		print("Jumping %d" % velocity.y)
 	if right:
 		velocity.x += run_speed
