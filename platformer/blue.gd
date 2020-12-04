@@ -20,14 +20,14 @@ func move_to (current, to, step):
 	var new = current
 	
 	if new < to:
-		$AnimatedSprite.play("right")
+
 		new += step
 
 		if new > to:
 			new = to
 	else:
 		new -= step
-		$AnimatedSprite.play("left")
+
 		if new < to:
 			new = to
 			
