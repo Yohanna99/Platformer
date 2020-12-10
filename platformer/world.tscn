@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://sprites/tile_sheet.png" type="Texture" id=1]
 [ext_resource path="res://herochar.png" type="Texture" id=2]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=3]
 [ext_resource path="res://sprites/Sprite_Sheet.png" type="Texture" id=4]
+[ext_resource path="res://2019-12-11_-_Retro_Platforming_-_David_Fesliyan.wav" type="AudioStream" id=5]
 [ext_resource path="res://sky.png" type="Texture" id=6]
 [ext_resource path="res://Area2D.gd" type="Script" id=7]
 [ext_resource path="res://sprites/heart.png" type="Texture" id=8]
@@ -555,12 +556,12 @@ region = Rect2( 32, 32, 32, 32 )
 [sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 32, 96, 32, 32 )
+region = Rect2( 64, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 64, 32, 32, 32 )
+region = Rect2( 32, 96, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=27]
 animations = [ {
@@ -571,12 +572,12 @@ animations = [ {
 }, {
 "frames": [ SubResource( 25 ) ],
 "loop": true,
-"name": "move left",
+"name": "move right",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 26 ) ],
 "loop": true,
-"name": "move right",
+"name": "move left",
 "speed": 5.0
 } ]
 
@@ -1061,6 +1062,10 @@ animation = "move left"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
 position = Vector2( 0, 5 )
 shape = SubResource( 28 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 [connection signal="body_entered" from="Coin/coin1" to="Coin/coin1" method="_on_coin1_body_entered"]
 [connection signal="body_entered" from="Coin/coin2" to="Coin/coin2" method="_on_coin1_body_entered"]
 [connection signal="body_entered" from="Coin/coin3" to="Coin/coin3" method="_on_coin1_body_entered"]

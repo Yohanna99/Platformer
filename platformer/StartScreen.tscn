@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://StartScreen.gd" type="Script" id=1]
+[ext_resource path="res://2019-12-11_-_Retro_Platforming_-_David_Fesliyan.wav" type="AudioStream" id=2]
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 1 )
@@ -78,3 +79,7 @@ drag_margin_left = 1.0
 drag_margin_top = 1.0
 drag_margin_right = 1.0
 drag_margin_bottom = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
